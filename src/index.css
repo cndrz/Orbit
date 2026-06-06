@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background-color: #0D0F14;
+    color: #C8CEDD;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar for the dark theme */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #252836;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3A3F52;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(245, 158, 11, 0.25);
+    color: #F59E0B;
+  }
+}
+
+@layer components {
+  .orbit-panel {
+    @apply bg-orbit-panel border border-orbit-border rounded-xl;
+    box-shadow: 0 0 0 1px #252836, 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  .orbit-input {
+    @apply bg-orbit-surface border border-orbit-border rounded-lg px-3 py-2
+           text-orbit-text placeholder-orbit-subtext text-sm
+           focus:outline-none focus:border-orbit-accent/60 focus:ring-1 focus:ring-orbit-accent/30
+           transition-all duration-150;
+  }
+
+  .orbit-btn {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium
+           transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .orbit-btn-primary {
+    @apply orbit-btn bg-orbit-accent text-orbit-bg hover:brightness-110 active:scale-95;
+  }
+
+  .orbit-btn-ghost {
+    @apply orbit-btn text-orbit-subtext hover:text-orbit-text hover:bg-orbit-border active:scale-95;
+  }
+
+  .orbit-tag {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium font-mono;
+  }
+}
